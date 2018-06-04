@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.engcpp;
 
 import org.openqa.selenium.By;
@@ -12,27 +7,37 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.LoadableComponent;
 
 /**
  *
  * @author engcpp
  */
-public class Login extends LoadableComponent<Login>{
-    private WebDriver selenium;
-    private final String URL = "https://iqconnect.test.equifax.co.nz/#/login";
+public class Login extends SeleniumTest{
+    private final String LOGIN_URL;
+    private final String MAIN_URL;
         
-    @FindBy(how= How.CLASS_NAME, using="btn btn-default")
+    @FindBy(how= How.TAG_NAME, using="button")
     @CacheLookup
     private WebElement loginButton; 
+    
+    @FindBy(how= How.NAME, using="email")
+    @CacheLookup
+    private WebElement usernameInput;
+    
+    @FindBy(how= How.NAME, using="password")
+    @CacheLookup   
+    private WebElement passwordInput;
     
     private String username;
     private String password;
     
-    public Login(WebDriver selenium){
-        this.selenium = selenium;
+    public Login(String mainUrl, WebDriver selenium){
+        super(selenium);
+        MAIN_URL = mainUrl;
+        LOGIN_URL = MAIN_URL+"/#/login";
+        
         PageFactory.initElements(selenium, this);        
-        selenium.get(URL);
+        selenium.get(LOGIN_URL);
     }    
     
     public Login withUsername(String username){
@@ -45,45 +50,29 @@ public class Login extends LoadableComponent<Login>{
         return this;
     }    
     
-    public void login(){
+    public Login login(){
       if (isLoggedIn())
-          return;
-        
-      WebElement usernameInput = selenium.findElement(By.name("email"));
-      WebElement passwordInput = selenium.findElement(By.name("password"));
-      WebElement submitButton  = selenium.findElement(By.tagName("submit"));
+          return this;
        
       usernameInput.sendKeys(username);
       passwordInput.sendKeys(password);
-      submitButton.submit();   
-      /*
-      (new WebDriverWait(selenium, 10)).until(new ExpectedCondition<Boolean>() {
-         public Boolean apply(WebDriver d) {
-            return isLoggedIn();
-         }
-      }); 
-      */
+      waitClickable(loginButton);
+      loginButton.click();     
+
+      waitLoader();      
+      
+      sleep();
+      
+      return this;
     }
     
     public void logout(){
-      if (isLoggedIn())
-        selenium.get(URL+"#/logout");
+      selenium.get(MAIN_URL+"/#/logout");        
+      while(isLoggedIn());      
+      sleep();
     }
     
-    private boolean isLoggedIn(){
-      return selenium.findElements(By.className("userprofile-username")).size()>0;
-    }
-    
-    @Override
-    protected void load() {
-        selenium.get(URL);
-    }  
-    
-    @Override
-    protected void isLoaded() throws Error{
-        String url = selenium.getCurrentUrl();
-        if (!url.equals(URL))
-            throw new Error("The wrong page has loaded");   
-    }    
-      
+    public boolean isLoggedIn(){
+      return findElements(By.xpath("//*[@id=\"app\"]/div/nav")).size()>0;
+    }      
 }
