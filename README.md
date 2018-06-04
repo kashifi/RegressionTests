@@ -1,6 +1,6 @@
 # Regression Tests for IQC
 
-Please fill the variable required for the test to work in:
+Please fill the variable required for the tests to work in:
 
 
 com.engcpp.utils.Constants
