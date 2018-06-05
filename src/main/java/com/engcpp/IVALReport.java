@@ -1,5 +1,7 @@
 package com.engcpp;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,11 +39,32 @@ public class IVALReport extends SeleniumTest {
   }  
 
   public PropertyMenu submit(){
+	    sleep();
+	    
+	    propertyInput.sendKeys(this.property);	    
+
+	    String XPATH = "//*[@id=\"app\"]/div/div/div[2]/div/div/div[1]/div[4]/div/div/div/form/div/div[2]/div[1]/div/div/div/ul/li";
+	    waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(XPATH)));
+	    
+	    List<WebElement>elements = null;	    
+	    if ((elements = selenium.findElements(By.xpath(XPATH))).size()>0) {   
+	     WebElement selectedElement = selenium.findElement(By.xpath(XPATH+"[1]/a"));
+	      waitClickable(selectedElement);
+	      selectedElement.click();
+	      
+	      return new PropertyMenu(selenium);
+	    }            
+	    
+	     return null;
+	  }
+  /*
+  public PropertyMenu submit(){
     sleep();
     
     propertyInput.sendKeys(this.property);    
     goButton.click();
     
+   
     waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("property-search-item")));
     
     if (selenium.findElements(By.className("property-search-item")).size()>0) {      
@@ -54,7 +77,7 @@ public class IVALReport extends SeleniumTest {
     
      return null;
   }
-
+*/
   static class PropertyMenu extends SeleniumTest {    
     @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[4]/div/div/div/a")
     @CacheLookup

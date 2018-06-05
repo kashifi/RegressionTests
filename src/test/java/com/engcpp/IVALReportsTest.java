@@ -2,6 +2,9 @@ package com.engcpp;
 
 import com.engcpp.IVALReport.PropertyMenu;
 import com.engcpp.utils.Constants;
+
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +24,8 @@ public class IVALReportsTest {
     public void setUp() {
       driver = new ChromeDriver();
       driver.manage().deleteAllCookies();
+      driver.manage().window().maximize();
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
       
       login = new Login(Constants.IQC_URL, driver)
         .withUsername(Constants.USERNAME)
