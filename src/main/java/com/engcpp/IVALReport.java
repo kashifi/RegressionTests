@@ -38,6 +38,7 @@ public class IVALReport extends SeleniumTest {
     return this;
   }  
 
+  /*
   public PropertyMenu submit(){
 	    sleep();
 	    
@@ -57,7 +58,9 @@ public class IVALReport extends SeleniumTest {
 	    
 	     return null;
 	  }
-  /*
+	  
+	  */
+  
   public PropertyMenu submit(){
     sleep();
     
@@ -77,7 +80,7 @@ public class IVALReport extends SeleniumTest {
     
      return null;
   }
-*/
+
   static class PropertyMenu extends SeleniumTest {    
     @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[4]/div/div/div/a")
     @CacheLookup
@@ -117,7 +120,7 @@ public class IVALReport extends SeleniumTest {
       waitForPresenceOf(By.className("report-card-header"));
       waitForPresenceOf(By.className("report-page-content"));
       waitForPresenceOf(By.className("report-disclaimer"));
-      
+                  
       return selenium.findElements(By.className("report-property-section")).size()>0;
     }        
   }  

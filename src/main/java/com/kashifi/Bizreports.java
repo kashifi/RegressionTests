@@ -1,5 +1,7 @@
 package com.kashifi;
 
+import java.sql.Driver;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,18 +10,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-//import com.engcpp.IVALReport;
 import com.engcpp.SeleniumTest;
+import org.openqa.selenium.support.ui.Select;
 
 	/**
-	 *
 	 * @author Kashif Iqbal
 	 */
 
 	public class Bizreports extends SeleniumTest {
 	private String commercialrpt;
-	          
+	// private static String enq_opt = "Non Credit Enquiry";
+	// private static String acc_opt = "Other Non-Credit";
+	
 	  @FindBy(how= How.ID, using="companySearchInput")
 	  @CacheLookup
 	  private WebElement commerptInput;
@@ -43,20 +45,11 @@ import com.engcpp.SeleniumTest;
 	  /* Working with the business report menu at first step ............... */
 	  
 	  public BizrptMenu submit(){
-	    sleep();
+		sleep();
 	    
 	    commerptInput.sendKeys(this.commercialrpt);    
 	    goButton.click();
-	    
-	    /**********  Standard Business Report:   //*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[2]/div
-	     ********** Advanced Business Report: //*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[1]/div
-	     ****  Customer Ref: //*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[2]/input
-	     *  Enq Type: 		//*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/div/input[1]
-	     *  Acct Type: 		//*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/div/input[1]
-	     *  Amount: 		//*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[5]/input
-	     *  
-	     *  */
-	    
+	      
 	    waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("company-search-detail")));
 	    
 	    if (selenium.findElements(By.className("company-search-detail")).size()>0) {      
@@ -75,52 +68,102 @@ import com.engcpp.SeleniumTest;
 	  /*Selecting a Standard Business Report ........ */ 
 	  
 	  static class BizrptMenu extends SeleniumTest {    
-	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[2]/div")
+	    @FindBy(how=How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[2]")
 	    @CacheLookup
-	    private WebElement ReportLink;
+	    private WebElement Std_ReportLink;
 	      
 	    public BizrptMenu(WebDriver driver){      
 	      super(driver);
 	      PageFactory.initElements(selenium, this);
 	    }
 	    
-	    public boolean isLoaded(){
-	      String panel = "//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[1]";
-	      return this.selenium.findElements(By.xpath(panel)).size()>0;
-	    } 
-	    
-	    public IVALForm chooseIval(){
-	      ivalLink.click(); 
-	      return new IVALForm(selenium);
+	    public BizrptForm SelectBizrpt(){
+	      waitFor(ExpectedConditions.visibilityOf(Std_ReportLink));
+	      Std_ReportLink.click(); 
+	      return new BizrptForm(selenium);
 	    }
 	  }
-	  
-	  /* Final submission for extracting the report ............. */ 
-	  
-	  static class IVALForm extends SeleniumTest {    
-	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[2]/button")
-	    @CacheLookup
-	    private WebElement ivalSubmit;    
+	  	  
+	  /* Final submission for extracting the report ............. */
 	    
-	    public IVALForm(WebDriver driver){
+	  static class BizrptForm extends SeleniumTest {   
+				
+		// Customer Reference Input field 
+		@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[2]/input")
+		@CacheLookup
+		private WebElement Biz_Rpt_Custref; 
+		
+		// Business Report Enquiry Type 
+		@FindBy(how= How.XPATH, using=".//*[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/div")
+		@CacheLookup
+		private WebElement Biz_Rpt_Enqtype;
+		
+		
+		// Business Report Account Type 	
+		@FindBy(how= How.XPATH, using=".//*[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/div")
+		@CacheLookup
+		private WebElement Biz_Rpt_Acctype;
+
+		// Business Report Amount 
+		@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[5]/input")
+		@CacheLookup
+		private WebElement Biz_Rpt_Amount;
+		
+		// Business Report Submit Button 
+	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[6]/button")
+	    @CacheLookup
+	    private WebElement Biz_Rpt_Submit;    
+	    
+	    public BizrptForm(WebDriver driver){
 	      super(driver);
 	      PageFactory.initElements(selenium, this);
 	    }      
 	      
-	    public boolean submit(){
-	      waitClickable(ivalSubmit);
-	      ivalSubmit.click();     
+	    public boolean submit() throws InterruptedException{	    	
 	      
+	      Biz_Rpt_Custref.clear();
+	      Biz_Rpt_Custref.sendKeys("QA");
+	    
+	      //  waitFor(ExpectedConditions.visibilityOf(Biz_Rpt_Enqtype));
+	      // waitFor(ExpectedConditions.visibilityOf(Biz_Rpt_Acctype));
+	     
+	      Biz_Rpt_Enqtype.click(); 
+	      Biz_Rpt_Enqtype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/ul/li[3]/a/span")).click();
+	      Thread.sleep(2000);
+	      
+	      // Select drpEnqType = new Select(Biz_Rpt_Enqtype);
+	      // drpEnqType.selectByValue("Non Credit Enquiry");
+	      //   drpEnqType.selectByIndex(3);
+	      
+	   //  if (Biz_Rpt_Enqtype.getText() == enq_opt) 
+	    //   {
+	    	
+	      Biz_Rpt_Acctype.click();
+	      Biz_Rpt_Acctype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/ul/li[4]/a/span")).click();
+	    	// }
+	     // else
+	      //{
+	   // 	  System.out.println("Enquiry Type is not selected Properly ......");
+	     // }
+	      	      
+	      Biz_Rpt_Amount.clear();
+	      Biz_Rpt_Amount.sendKeys("101");
+	      
+	      waitFor(ExpectedConditions.visibilityOf(Biz_Rpt_Submit));
+	      waitClickable(Biz_Rpt_Submit);
+	      Biz_Rpt_Submit.click();
+	      
+	      	      
 	      waitLoader();
 	      waitForPresenceOf(By.className("report-card-header"));
-	      waitForPresenceOf(By.className("report-page-content"));
-	      waitForPresenceOf(By.className("report-disclaimer"));
+	      waitForPresenceOf(By.className("report-card-header-data"));
+	      waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
 	      
-	      return selenium.findElements(By.className("report-property-section")).size()>0;
-	    }        
-	  }  
-	}
+	      	      
+	      return selenium.findElements(By.className("workspace-hub-tiles")).size()>0;
+	    }
+    }  
+}
 	
 	
 
-}
