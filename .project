@@ -3,6 +3,7 @@
 	<name>IQC_Regression_Test_Suite</name>
 	<comment></comment>
 	<projects>
+		<project>IQC_Regression_Test_Suite</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

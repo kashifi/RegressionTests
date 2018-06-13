@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTestSet">
+  <test thread-count="5" name="Commercial_Report">
+    <classes>
+      <class name="com.kashifi.Std_BizReportTest"/>
+    </classes>
+  </test> <!-- Commercial_Report -->
+  
+  <test thread-count="5" name="iVAL">
+    <classes>
+      <class name="com.engcpp.IVALReportsTest"/>
+    </classes>
+  </test> <!-- iVAL -->
+  
+</suite> <!-- SmokeTestSet -->

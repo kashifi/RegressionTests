@@ -1,11 +1,11 @@
 package com.kashifi;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,8 +20,8 @@ public class Std_BizReportTest {
 	 private WebDriver driver;    
 	 private Login login;
 	    
-	    @Before
-	    public void setUp() {
+	   	@BeforeMethod
+		public void setUp() {
 	      driver = new ChromeDriver();
 	      driver.manage().deleteAllCookies();
 	      driver.manage().window().maximize();
@@ -33,8 +33,8 @@ public class Std_BizReportTest {
 	        .login();
 	    }
 	    
-	    @After
-	    public void tearDown() {
+	    @AfterMethod
+		public void tearDown() {
 	        //driver.quit();
 	    }       
 	    
@@ -47,11 +47,11 @@ public class Std_BizReportTest {
 	          .withCommrpt("IQ Solutions")
 	          .submit();
 	          
-	        Assert.assertNotNull(menu);
+	        AssertJUnit.assertNotNull(menu);
 	        if (menu != null) {
 	          boolean reportOk = menu.SelectBizrpt().submit();            
 	          
-	          Assert.assertTrue(reportOk);  
+	          AssertJUnit.assertTrue(reportOk);  
 
 	          login.logout();          
 	        }

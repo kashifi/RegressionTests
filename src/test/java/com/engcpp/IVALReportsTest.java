@@ -1,27 +1,29 @@
 package com.engcpp;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import com.engcpp.IVALReport.PropertyMenu;
 import com.engcpp.utils.Constants;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  *
  * @author engcpp
+ * 
+ * @ Changed by: Kashifi - Converted to the TESTNG class from the JUnit  
  */
 public class IVALReportsTest {
     private WebDriver driver;    
     private Login login;
     
-    @Before
-    public void setUp() {
+    @BeforeMethod
+	public void setUp() {
       driver = new ChromeDriver();
       driver.manage().deleteAllCookies();
       driver.manage().window().maximize();
@@ -33,8 +35,8 @@ public class IVALReportsTest {
         .login();
     }
     
-    @After
-    public void tearDown() {
+    @AfterMethod
+	public void tearDown() {
         driver.quit();
     }       
     
@@ -47,11 +49,11 @@ public class IVALReportsTest {
           .withProperty("Bucklands")
           .submit();
         
-        Assert.assertNotNull(menu);
+        AssertJUnit.assertNotNull(menu);
          if (menu != null) {
           boolean reportOk = menu.chooseIval().submit();            
           
-          Assert.assertTrue(reportOk);  
+          AssertJUnit.assertTrue(reportOk);  
 
           login.logout();          
         }
