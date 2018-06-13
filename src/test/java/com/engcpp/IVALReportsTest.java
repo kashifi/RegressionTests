@@ -48,8 +48,7 @@ public class IVALReportsTest {
           .submit();
         
         Assert.assertNotNull(menu);
-        //*[@id="home-tabs-pane-1"]/div/div/div[2]/div[2]/div/div/div
-        if (menu != null) {
+         if (menu != null) {
           boolean reportOk = menu.chooseIval().submit();            
           
           Assert.assertTrue(reportOk);  
