@@ -8,15 +8,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.engcpp.SeleniumTest;
+import com.kashifi.Bizreports.BizrptForm;
+import com.kashifi.Bizreports.BizrptMenu;
 
-	/**
-	 * @author Kashif Iqbal (Standard Business Reports)
-	 */
+public class Scoreplus extends SeleniumTest{
 
-	public class Bizreports extends SeleniumTest {
-	private String commercialrpt;
-		
+	private String consrpt;
+	// private static String enq_opt = "Non Credit Enquiry";
+	// private static String acc_opt = "Other Non-Credit";
+	
 	  @FindBy(how= How.ID, using="companySearchInput")
 	  @CacheLookup
 	  private WebElement commerptInput;
@@ -27,22 +29,22 @@ import com.engcpp.SeleniumTest;
 	  
 	  private final String ELEMENT_1_XPATH = "//*[@id=\"app\"]/div/div/div[2]/div/div/div[1]/div[3]/div/div/div/div/div[2]/div/strong/a";
 	  
-	  public Bizreports(WebDriver selenium){
+	  public Scoreplus(WebDriver selenium){
 	    super(selenium);
 	    PageFactory.initElements(selenium, this);   
 	  }  
 	  
-	  public Bizreports withCommrpt(String Commreport){
-	    this.commercialrpt = Commreport;
+	  public Scoreplus withConsrpt(String Consreport){
+	    this.consrpt = Consreport;
 	    return this;
 	  }  
 
 	  /* Working with the business report menu at first step ............... */
 	  
-	  public BizrptMenu submit(){
+	  public ConsrptMenu submit(){
 		sleep();
 	    
-	    commerptInput.sendKeys(this.commercialrpt);    
+	    commerptInput.sendKeys(this.consrpt);    
 	    goButton.click();
 	      
 	    waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("company-search-detail")));
@@ -52,7 +54,7 @@ import com.engcpp.SeleniumTest;
 	      waitClickable(firstElement);
 	      firstElement.click();
 	      
-	      return new BizrptMenu(selenium);
+	      return new ConsrptMenu(selenium);
 	    }            
 	    
 	     return null;
@@ -62,12 +64,12 @@ import com.engcpp.SeleniumTest;
 	  
 	  /*Selecting a Standard Business Report ........ */ 
 	  
-	  static class BizrptMenu extends SeleniumTest {    
+	  static class ConsrptMenu extends SeleniumTest {    
 	    @FindBy(how=How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[2]")
 	    @CacheLookup
 	    private WebElement Std_ReportLink;
 	      
-	    public BizrptMenu(WebDriver driver){      
+	    public ConsrptMenu(WebDriver driver){      
 	      super(driver);
 	      PageFactory.initElements(selenium, this);
 	    }
@@ -158,7 +160,5 @@ import com.engcpp.SeleniumTest;
 	      return selenium.findElements(By.className("workspace-hub-tiles")).size()>0;
 	    }
     }  
+	
 }
-	
-	
-

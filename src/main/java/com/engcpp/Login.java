@@ -20,11 +20,11 @@ public class Login extends SeleniumTest{
     @CacheLookup
     private WebElement loginButton; 
     
-    @FindBy(how= How.NAME, using="email")
+    @FindBy(how= How.ID, using="formHorizontalEmail")
     @CacheLookup
     private WebElement usernameInput;
     
-    @FindBy(how= How.NAME, using="password")
+    @FindBy(how= How.ID, using="formHorizontalPassword")
     @CacheLookup   
     private WebElement passwordInput;
     

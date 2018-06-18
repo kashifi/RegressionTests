@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59276" started-at="2018-06-13T04:17:44Z" finished-at="2018-06-13T04:18:43Z">
+  <suite name="Default suite" duration-ms="95258" started-at="2018-06-18T03:55:35Z" finished-at="2018-06-18T03:57:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59276" started-at="2018-06-13T04:17:44Z" finished-at="2018-06-13T04:18:43Z">
-      <class name="com.engcpp.IVALReportsTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.IVALReportsTest@3e6fa38a]" name="setUp" is-config="true" duration-ms="23507" started-at="2018-06-13T16:17:44Z" finished-at="2018-06-13T16:18:07Z">
+    <test name="Default test" duration-ms="95258" started-at="2018-06-18T03:55:35Z" finished-at="2018-06-18T03:57:10Z">
+      <class name="com.kashifi.Adv_BizReportTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.kashifi.Adv_BizReportTest@3e6fa38a]" name="setUp" is-config="true" duration-ms="27257" started-at="2018-06-18T15:55:35Z" finished-at="2018-06-18T15:56:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testIVALReport()[pri:0, instance:com.engcpp.IVALReportsTest@3e6fa38a]" name="testIVALReport" duration-ms="35182" started-at="2018-06-13T16:18:07Z" finished-at="2018-06-13T16:18:42Z">
+        <test-method status="PASS" signature="testBizReport()[pri:0, instance:com.kashifi.Adv_BizReportTest@3e6fa38a]" name="testBizReport" duration-ms="66803" started-at="2018-06-18T15:56:02Z" finished-at="2018-06-18T15:57:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testIVALReport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.IVALReportsTest@3e6fa38a]" name="tearDown" is-config="true" duration-ms="563" started-at="2018-06-13T16:18:42Z" finished-at="2018-06-13T16:18:43Z">
+        </test-method> <!-- testBizReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.kashifi.Adv_BizReportTest@3e6fa38a]" name="tearDown" is-config="true" duration-ms="1165" started-at="2018-06-18T15:57:09Z" finished-at="2018-06-18T15:57:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.engcpp.IVALReportsTest -->
+      </class> <!-- com.kashifi.Adv_BizReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

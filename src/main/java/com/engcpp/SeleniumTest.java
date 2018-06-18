@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SeleniumTest {
     protected WebDriver selenium; 
     private static final long TME_SLEEP_IN_MILLI_SECS = 2000;
-    private static final long TME_OUT_IN_SECS = 30;
+    private static final long TME_OUT_IN_SECS = 50;
     
     public SeleniumTest(WebDriver driver){
         this.selenium = driver;

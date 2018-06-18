@@ -1,7 +1,5 @@
 package com.engcpp;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -82,7 +80,10 @@ public class IVALReport extends SeleniumTest {
   }
 
   static class PropertyMenu extends SeleniumTest {    
-    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[4]/div/div/div/a")
+
+	/* This is the definition for the iVAL Link as a Web Element ........ */
+	 
+	@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[4]/div/div/div/a")
     @CacheLookup
     private WebElement ivalLink;
       
@@ -90,11 +91,13 @@ public class IVALReport extends SeleniumTest {
       super(driver);
       PageFactory.initElements(selenium, this);
     }
-    
+   
+    /*
     public boolean isLoaded(){
       String panel = "//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[1]";
       return this.selenium.findElements(By.xpath(panel)).size()>0;
-    } 
+      
+    } */
     
     public IVALForm chooseIval(){
       ivalLink.click(); 
@@ -103,9 +106,16 @@ public class IVALReport extends SeleniumTest {
   }
   
   static class IVALForm extends SeleniumTest {    
-    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[2]/button")
-    @CacheLookup
-    private WebElement ivalSubmit;    
+    
+	  // Customer Reference Input field 
+		@FindBy(how= How.XPATH, using="//*[@id=\"clientReference\"]")
+		@CacheLookup
+		private WebElement iVAL_Rpt_Custref; 
+	
+	// iVAL report Submit button  
+	  @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[2]/button")
+	  @CacheLookup
+	  private WebElement ivalSubmit;    
     
     public IVALForm(WebDriver driver){
       super(driver);
@@ -113,6 +123,12 @@ public class IVALReport extends SeleniumTest {
     }      
       
     public boolean submit(){
+    
+      // Giving input to the Customer reference field 	
+      iVAL_Rpt_Custref.clear();
+      iVAL_Rpt_Custref.sendKeys("QA");
+	   
+      // Submitting iVAL Report  
       waitClickable(ivalSubmit);
       ivalSubmit.click();     
       

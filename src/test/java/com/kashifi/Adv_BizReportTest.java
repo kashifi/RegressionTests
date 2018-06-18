@@ -9,13 +9,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.kashifi.Bizreports;
+import com.kashifi.AdvBizreports.AdvBizrptMenu;
 import com.engcpp.Login;
 import com.engcpp.ProductsTab;
-import com.kashifi.Bizreports.BizrptMenu;
 import com.engcpp.utils.Constants;
 
-public class Std_BizReportTest {
+public class Adv_BizReportTest {
 	
 	 private WebDriver driver;    
 	 private Login login;
@@ -43,8 +42,8 @@ public class Std_BizReportTest {
 	        
 	      if (new ProductsTab(driver).businessClick()){
 	        
-	    	  BizrptMenu menu = new Bizreports(driver)
-	          .withCommrpt("IQ Solutions")
+	    	  AdvBizrptMenu menu = new AdvBizreports(driver)
+	          .withCommrpt("YEASTIE BOYS LIMITED")
 	          .submit();
 	          
 	        AssertJUnit.assertNotNull(menu);
