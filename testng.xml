@@ -14,9 +14,10 @@
     </classes>
   </test> <!-- iVAL -->
   
-  <test thread-count="5" name="Commercial_Report">
+  <test thread-count="5" name="Commercial_Reports">
     <classes>
       <class name="com.kashifi.Std_BizReportTest"/>
+      <class name="com.kashifi.Adv_BizReportTest"/>
     </classes>
   </test> <!-- Commercial_Report -->
   </suite> <!-- SmokeTestSet -->

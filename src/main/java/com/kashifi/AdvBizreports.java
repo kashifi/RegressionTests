@@ -111,15 +111,9 @@ import com.engcpp.SeleniumTest;
 	    @CacheLookup
 	    private WebElement Biz_Rpt_Submit;    
 	  
-	    
-	    //*[@id="home-tabs-pane-0"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[9]/button
-	    //*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[7]/button
-	    
-	     
-	    
 	    /** *********  Fields needed for Advanced Reports ***************** **/
 	      
-	 // Check box for directors information (Advanced reports) 
+	    // Check box for directors information (Advanced reports) 
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[1]/div[2]/label/input")
 	    @CacheLookup
 	    private WebElement BizRpt_DIR_Checkbox;    
@@ -136,12 +130,11 @@ import com.engcpp.SeleniumTest;
 	    private WebElement DOB_input;    
 	    
 	    
-	 // Gender Field - Advanced Reports (Director)  
+	    // Gender Field - Advanced Reports (Director)  
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[5]/div[2]/div/input[1]")
 	    @CacheLookup
 	    private WebElement Gender_input;    
 	    
-	  
 	    
 		 // Director's Affiliation  
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[10]/div[2]/div[2]/div[2]/label/input")
@@ -185,10 +178,10 @@ import com.engcpp.SeleniumTest;
 	      
 	      BizRpt_DIR_Checkbox.click();
 	      
-	      // BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).click();
+	      	// BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).click();
 	      
-	     // if (BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).isSelected() == true) 
-	     // {
+	      	// if (BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).isSelected() == true) 
+	      	// {
 	    	
 	      	DOB_input.clear();
 	      	DOB_input.sendKeys("01/01/1980");
@@ -201,11 +194,8 @@ import com.engcpp.SeleniumTest;
 	    	Acc_purposeinput.clear();
 	    	Acc_purposeinput.findElement(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[11]/div[2]/div[1]/div[2]/ul/li[12]/a/div/strong")).click();
 	    	
-	    	//sendKeys("IT system error detection, recovery and verification");
-
-	    	//	Privacy_Cons_Chkbox.click();;
-	    	  
-	      // }
+	    	Privacy_Cons_Chkbox.click();;
+	    	
 	      
 	      waitClickable(Biz_Rpt_Submit);
 	      Biz_Rpt_Submit.click();
@@ -215,8 +205,11 @@ import com.engcpp.SeleniumTest;
 	      waitForPresenceOf(By.className("report-card-header-data"));
 	      waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
 	          waitForPresenceOf(By.className("home-tab-title"));
-	          System.out.println("Consumer Credit Report is available now ........... ");
+	          System.out.println("Consumer Credit Report is also available now and can be downloaded ..... !!! ");
+	          System.out.println("Advanced Business Report has been successfully generated ........... ");
+	          
 	      return selenium.findElements(By.className("workspace-hub-tiles")).size()>0;
+	      
 	    }
     }  
 }

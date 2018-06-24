@@ -15,7 +15,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- *
  * @author engcpp
  */
 public class SeleniumTest {

@@ -154,7 +154,7 @@ import com.engcpp.SeleniumTest;
 	      waitForPresenceOf(By.className("report-card-header-data"));
 	      waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
 	      
-	      	      
+	      System.out.println("Standard Business Report has been generated successfully ......... ");	      
 	      return selenium.findElements(By.className("workspace-hub-tiles")).size()>0;
 	    }
     }  
