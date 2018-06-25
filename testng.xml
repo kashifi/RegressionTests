@@ -16,8 +16,8 @@
   
   <test thread-count="5" name="Commercial_Reports">
     <classes>
-      <class name="com.kashifi.Std_BizReportTest"/>
-      <class name="com.kashifi.Adv_BizReportTest"/>
+      <class name="com.kashifi.stdBizReportTest"/>
+      <class name="com.kashifi.advBizReportTest"/>
     </classes>
   </test> <!-- Commercial_Report -->
   </suite> <!-- SmokeTestSet -->

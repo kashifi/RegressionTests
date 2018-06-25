@@ -6,11 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.AssertJUnit;
 import com.engcpp.IVALReport.PropertyMenu;
 import com.engcpp.utils.Constants;
-
-import java.util.concurrent.TimeUnit;
+import com.engcpp.utils.DriverFactory;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  *
@@ -24,10 +22,7 @@ public class IVALReportsTest {
     
     @BeforeMethod
 	public void setUp() {
-      driver = new ChromeDriver();
-      driver.manage().deleteAllCookies();
-      driver.manage().window().maximize();
-      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      driver = DriverFactory.newChromeInstance();
       
       login = new Login(Constants.IQC_URL, driver)
         .withUsername(Constants.USERNAME)
@@ -58,5 +53,5 @@ public class IVALReportsTest {
           login.logout();          
         }
       }
-    }    
+	}
 }

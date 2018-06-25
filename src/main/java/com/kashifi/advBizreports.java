@@ -14,7 +14,7 @@ import com.engcpp.SeleniumTest;
 	 * @author Kashif Iqbal (Advanced Business Reports)
 	 */
 
-	public class AdvBizreports extends SeleniumTest{
+	public class advBizreports extends SeleniumTest{
 	private String commercialrpt;
 		
 	  @FindBy(how= How.ID, using="companySearchInput")
@@ -27,19 +27,19 @@ import com.engcpp.SeleniumTest;
 	  
 	  private final String ELEMENT_1_XPATH = "//*[@id=\"app\"]/div/div/div[2]/div/div/div[1]/div[3]/div/div/div/div/div[2]/div/strong/a";
 	  
-	  public AdvBizreports(WebDriver selenium){
+	  public advBizreports(WebDriver selenium){
 	    super(selenium);
 	    PageFactory.initElements(selenium, this);   
 	  }  
 	  
-	  public AdvBizreports withCommrpt(String Commreport){
+	  public advBizreports withCommrpt(String Commreport){
 	    this.commercialrpt = Commreport;
 	    return this;
 	  }  
 
 	  /* Working with the business report Menu at first step ............... */
 	  
-	  public AdvBizrptMenu submit(){
+	  public advBizrptMenu submit(){
 		
 		sleep();
 		commerptInput.sendKeys(this.commercialrpt);    
@@ -52,7 +52,7 @@ import com.engcpp.SeleniumTest;
 	      waitClickable(firstElement);
 	      firstElement.click();
 	      
-	      return new AdvBizrptMenu(selenium);
+	      return new advBizrptMenu(selenium);
 	    }            
 	    
 	     return null;
@@ -62,143 +62,142 @@ import com.engcpp.SeleniumTest;
 	  
 	  /*Selecting a Standard Business Report ........ */ 
 	  
-	  static class AdvBizrptMenu extends SeleniumTest {    
+	  static class advBizrptMenu extends SeleniumTest {    
 	    @FindBy(how=How.XPATH, using=" //*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[1]/div")
 	    @CacheLookup
 	    private WebElement Adv_ReportLink;
 	      
-	    public AdvBizrptMenu(WebDriver driver){      
+	    public advBizrptMenu(WebDriver driver){      
 	      super(driver);
 	      PageFactory.initElements(selenium, this);
 	    }
 	    
-	    public AdvBizrptForm SelectBizrpt(){
+	    public advBizrptForm SelectBizrpt(){
 	      waitFor(ExpectedConditions.visibilityOf(Adv_ReportLink));
 	      Adv_ReportLink.click(); 
-	      return new AdvBizrptForm(selenium);
+	      return new advBizrptForm(selenium);
 	    }
 
 	  }
 	  	  
 	  /* Final submission for extracting the Advanced Business Report ............. */
 	    
-	  static class AdvBizrptForm extends SeleniumTest {   
+	  static class advBizrptForm extends SeleniumTest {   
 				
 		// Customer Reference Input field 
 		@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[2]/input")
 		@CacheLookup
-		private WebElement Biz_Rpt_Custref; 
+		private WebElement bizrptCustref; 
 		
 		// Business Report Enquiry Type 
 		@FindBy(how= How.XPATH, using=".//*[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/div")
 		@CacheLookup
-		private WebElement Biz_Rpt_Enqtype;
+		private WebElement bizrptEnqtype;
 		
 		
 		// Business Report Account Type 	
 		@FindBy(how= How.XPATH, using=".//*[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/div")
 		@CacheLookup
-		private WebElement Biz_Rpt_Acctype;
+		private WebElement bizrptAcctype;
 
 		// Business Report Amount 
 		@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[5]/input")
 		@CacheLookup
-		private WebElement Biz_Rpt_Amount;
+		private WebElement bizrptAmount;
 		
 		
 		// Business Report Submit Button 
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[9]/button")
 	    @CacheLookup
-	    private WebElement Biz_Rpt_Submit;    
+	    private WebElement bizrptSubmit;    
 	  
 	    /** *********  Fields needed for Advanced Reports ***************** **/
 	      
 	    // Check box for directors information (Advanced reports) 
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[1]/div[2]/label/input")
 	    @CacheLookup
-	    private WebElement BizRpt_DIR_Checkbox;    
+	    private WebElement bizrptDirChkbox;    
 	    
 	    // Loading process ................
 	    @FindBy(how= How.CLASS_NAME, using="loading-wheel")
 	    @CacheLookup
-	    private WebElement BizRpt_Chkbox_loader; 
+	    private WebElement bizrptChkboxLOAD; 
 		
 	    
 	    // Date of Birth - Advanced Reports (Director)  
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[4]/div[2]/input")
 	    @CacheLookup
-	    private WebElement DOB_input;    
+	    private WebElement inputDOB;    
 	    
 	    
 	    // Gender Field - Advanced Reports (Director)  
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[5]/div[2]/div/input[1]")
 	    @CacheLookup
-	    private WebElement Gender_input;    
+	    private WebElement inputGender;    
 	    
 	    
 		 // Director's Affiliation  
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[10]/div[2]/div[2]/div[2]/label/input")
 	    @CacheLookup
-	    private WebElement Dir_Aff_input;    
+	    private WebElement dirAff;    
 	    
 	    
 	    // Access Purpose Field   
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[11]/div[2]/div[1]/div[2]/div/input[1]")
 	    @CacheLookup
-	    private WebElement Acc_purposeinput;    
+	    private WebElement accPurpose;    
 	    
 	    // Privacy Code Consent    
 	    @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[11]/div[2]/div[2]/div[2]/label/input")
 	    @CacheLookup
-	    private WebElement Privacy_Cons_Chkbox;    
+	    private WebElement privacyConsChkbox;    
 	    
 	    
-	    public AdvBizrptForm(WebDriver driver){
+	    public advBizrptForm(WebDriver driver){
 	      super(driver);
 	      PageFactory.initElements(selenium, this);
 	    }      
 	      
 	    public boolean submit() throws InterruptedException{	    	
 	    	
-	      waitFor(ExpectedConditions.visibilityOf(BizRpt_DIR_Checkbox));	
+	      waitFor(ExpectedConditions.visibilityOf(bizrptDirChkbox));	
 	     	      
-	      Biz_Rpt_Custref.clear();
-	      Biz_Rpt_Custref.sendKeys("QA");
+	      bizrptCustref.clear();
+	      bizrptCustref.sendKeys("QA");
 	    
-	      Biz_Rpt_Enqtype.click(); 
-	      Biz_Rpt_Enqtype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/ul/li[3]/a/span")).click();
+	      bizrptEnqtype.click(); 
+	      bizrptEnqtype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[3]/div[2]/ul/li[3]/a/span")).click();
 	   	
-	      Biz_Rpt_Acctype.click();
-	      Biz_Rpt_Acctype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/ul/li[4]/a/span")).click();
+	      bizrptAcctype.click();
+	      bizrptAcctype.findElement(By.xpath("//div[@id='home-tabs-pane-0']/div/div[4]/div[3]/div[2]/div/div/div/form/div[4]/div[2]/ul/li[4]/a/span")).click();
 	      	      
-	      Biz_Rpt_Amount.clear();
-	      Biz_Rpt_Amount.sendKeys("101");
+	      bizrptAmount.clear();
+	      bizrptAmount.sendKeys("101");
 	      
 	      /* Click on one of the director's for advance reports ............. */
 	      
-	      BizRpt_DIR_Checkbox.click();
+	      bizrptDirChkbox.click();
 	      
 	      	// BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).click();
 	      
 	      	// if (BizRpt_DIR_Checkbox.findElement(By.name("directors.0.selected")).isSelected() == true) 
 	      	// {
 	    	
-	      	DOB_input.clear();
-	      	DOB_input.sendKeys("01/01/1980");
+	      inputDOB.clear();
+	      inputDOB.sendKeys("01/01/1980");
     	  
-	      	Gender_input.clear();
-	      	Gender_input.findElement(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[5]/div[2]/ul/li[1]/a/span")).click();
+	      inputGender.clear();
+	      inputGender.findElement(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[5]/div[2]/ul/li[1]/a/span")).click();
 	    	  
-	    	Dir_Aff_input.click();
+	      dirAff.click();
 	    	  
-	    	Acc_purposeinput.clear();
-	    	Acc_purposeinput.findElement(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[11]/div[2]/div[1]/div[2]/ul/li[12]/a/div/strong")).click();
+	      accPurpose.clear();
+	      accPurpose.findElement(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div[8]/div[2]/div/div[11]/div[2]/div[1]/div[2]/ul/li[12]/a/div/strong")).click();
 	    	
-	    	Privacy_Cons_Chkbox.click();;
-	    	
+	      privacyConsChkbox.click();
 	      
-	      waitClickable(Biz_Rpt_Submit);
-	      Biz_Rpt_Submit.click();
+	      waitClickable(bizrptSubmit);
+	      bizrptSubmit.click();
 	      
 	      waitLoader();
 	      waitForPresenceOf(By.className("report-card-header"));

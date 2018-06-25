@@ -110,7 +110,7 @@ public class IVALReport extends SeleniumTest {
 	  // Customer Reference Input field 
 		@FindBy(how= How.XPATH, using="//*[@id=\"clientReference\"]")
 		@CacheLookup
-		private WebElement iVAL_Rpt_Custref; 
+		private WebElement ivalRptCustref; 
 	
 	// iVAL report Submit button  
 	  @FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[2]/button")
@@ -125,8 +125,8 @@ public class IVALReport extends SeleniumTest {
     public boolean submit(){
     
       // Giving input to the Customer reference field 	
-      iVAL_Rpt_Custref.clear();
-      iVAL_Rpt_Custref.sendKeys("QA");
+    	ivalRptCustref.clear();
+    	ivalRptCustref.sendKeys("QA");
 	   
       // Submitting iVAL Report  
       waitClickable(ivalSubmit);
