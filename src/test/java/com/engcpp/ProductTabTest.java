@@ -44,7 +44,7 @@ public class ProductTabTest {
       AssertJUnit.assertTrue(tab.businessClick());        
     }
     
-    @Test
+    @Test(enabled = false)
     public void testVehicleTab(){            
       ProductsTab tab = new ProductsTab(driver);        
       AssertJUnit.assertTrue(tab.vehicleClick());        
