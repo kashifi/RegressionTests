@@ -3,13 +3,11 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.engcpp.IVALReportsTest">
+      <class name="com.kashifi.testng.TestRptFactory">
         <methods>
-          <include name="setUp"/>
-          <include name="testIVALReport"/>
-          <include name="tearDown"/>
+          <include name="f"/>
         </methods>
-      </class> <!-- com.engcpp.IVALReportsTest -->
+      </class> <!-- com.kashifi.testng.TestRptFactory -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

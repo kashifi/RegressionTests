@@ -3,13 +3,13 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [SmokeTestSet]">
   <test name="iVAL(failed)">
     <classes>
-      <class name="com.engcpp.IVALReportsTest">
+      <class name="com.engcpp.property.IVALReportsTest">
         <methods>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="testIVALReport"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.engcpp.IVALReportsTest -->
+      </class> <!-- com.engcpp.property.IVALReportsTest -->
     </classes>
   </test> <!-- iVAL(failed) -->
 </suite> <!-- Failed suite [SmokeTestSet] -->

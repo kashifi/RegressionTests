@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SmokeTestSet">
-    
-    <test thread-count="5" name="Login_out">
+	
+	<listeners>
+         <listener class-name="com.kashifi.TestngCustReporter"/>
+    </listeners>
+   
+   <test thread-count="5" name="Login_LogOut">
     <classes>
       <class name="com.engcpp.LoginTest"/>
     </classes>
-  </test> <!-- Login_out -->
+	</test> <!-- Login_LogOut -->
+
+   <test thread-count="5" name="iVAL_Property">
+    <classes>
+      <class name="com.engcpp.property.IVALReportsTest"/>
+    </classes>
+  </test> <!-- iVAL_Property --> 
     
-    <test thread-count="5" name="iVAL">
+    <test thread-count="5" name="Consumer_Reports">
     <classes>
-      <class name="com.engcpp.IVALReportsTest"/>
+      <class name="com.engcpp.individual.ScoreplusReportTest"/>
     </classes>
-  </test> <!-- iVAL -->
+  </test> <!-- Consumer_Report -->  
+    
+  <test thread-count="5" name="StandardCommercialReport">
+    <classes>
+      <class name="com.kashifi.stdBizRptTest"/>
+      </classes>
+  </test> <!-- StandardCommercialReport -->
   
-  <test thread-count="5" name="Commercial_Reports">
-    <classes>
-      <class name="com.kashifi.stdBizReportTest"/>
-      <class name="com.kashifi.advBizReportTest"/>
-    </classes>
-  </test> <!-- Commercial_Report -->
-  </suite> <!-- SmokeTestSet -->
+  <test thread-count="5" name="AdvancedCommercialReports">
+      <classes>
+      <class name="com.kashifi.advBizRptTest"/>
+      </classes>
+  </test> <!-- AdvancedCommercialReports -->  
+  
+ </suite> <!-- SmokeTestSet -->

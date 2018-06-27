@@ -65,7 +65,7 @@ import com.engcpp.SeleniumTest;
 	  static class advBizrptMenu extends SeleniumTest {    
 	    @FindBy(how=How.XPATH, using=" //*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div/div[1]/div[3]/div/div/div/a[1]/div")
 	    @CacheLookup
-	    private WebElement Adv_ReportLink;
+	    private WebElement advRptLink;
 	      
 	    public advBizrptMenu(WebDriver driver){      
 	      super(driver);
@@ -73,8 +73,8 @@ import com.engcpp.SeleniumTest;
 	    }
 	    
 	    public advBizrptForm SelectBizrpt(){
-	      waitFor(ExpectedConditions.visibilityOf(Adv_ReportLink));
-	      Adv_ReportLink.click(); 
+	      waitFor(ExpectedConditions.visibilityOf(advRptLink));
+	      advRptLink.click(); 
 	      return new advBizrptForm(selenium);
 	    }
 

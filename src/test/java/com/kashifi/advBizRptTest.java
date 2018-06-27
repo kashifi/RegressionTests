@@ -15,7 +15,7 @@ import com.engcpp.ProductsTab;
 import com.engcpp.utils.Constants;
 import com.engcpp.utils.DriverFactory;
 
-public class advBizReportTest {
+public class advBizRptTest {
 
 	private WebDriver driver;
 	private Login login;
