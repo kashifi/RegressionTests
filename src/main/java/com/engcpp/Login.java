@@ -53,24 +53,26 @@ public class Login extends SeleniumTest {
 	public Login login() {
 		if (isLoggedIn())
 			return this;
-
+		
+		waitForPresenceOf(By.id("formHorizontalEmail"));
+		waitForPresenceOf(By.id("formHorizontalPassword"));
+		//waitClickable(usernameInput);
+		//waitClickable(passwordInput);
+		
 		usernameInput.sendKeys(username);
 		passwordInput.sendKeys(password);
 		waitClickable(loginButton);
 		loginButton.click();
-
 		waitLoader();
-
-		sleep();
-
+		System.out.println("Successfully Logged IN .......... ");
 		return this;
 	}
 
 	public void logout() {
 		selenium.get(MAIN_URL + "/#/logout");
-		while (isLoggedIn())
-			;
-		sleep();
+		while (isLoggedIn());
+		System.out.println("Successfully Logged OUT .......... ");
+		//sleep();
 	}
 
 	public boolean isLoggedIn() {

@@ -150,6 +150,10 @@ public class ScoreplusReport extends SeleniumTest{
     	    waitFor(ExpectedConditions.visibilityOfAllElements(gender));
             if (individual.getGender() != null )                
                 gender.sendKeys(individual.getGender());
+            		WebElement genderOption = selenium.findElement(By.partialLinkText("Male"));
+  	      			waitClickable(genderOption);
+  	      			genderOption.click();
+  	     
             
             if (individual.getDriverLicence() != null)
                 driverLicence.sendKeys(individual.getDriverLicence());
@@ -216,7 +220,8 @@ public class ScoreplusReport extends SeleniumTest{
   	      waitForPresenceOf(By.className("report-card-header"));
   	      waitForPresenceOf(By.className("report-card-header-data"));
   	      waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
-  	        
+  	      System.out.println("Equifax Score Plus Report has been successfully generated ....... ");
+  	      
   	      //waitForPresenceOf(By.className("report-card-header"));
             return true;
       }catch (Exception e){
@@ -266,7 +271,7 @@ public class ScoreplusReport extends SeleniumTest{
     }    
   }
   
-  static class ReportOptionsForm extends SeleniumTest {
+  public static class ReportOptionsForm extends SeleniumTest {
       
     @FindBy(how= How.XPATH, using="//*[@value=\"propertyOwnershipVerification\"]")
     private WebElement propertyOwnership;
@@ -313,12 +318,14 @@ public class ScoreplusReport extends SeleniumTest{
             if (iro.isDirectorshipAffiliationSearch())
                 directorshipAffiliation.click();
 
-            accessPurposeCode.sendKeys(iro.getAccessPurposeCode());
-           
             if (iro.isPrivateCodeConsent())  
-            	sleep();
             	privacyCodeConsent.click();
             
+            accessPurposeCode.sendKeys(iro.getAccessPurposeCode());
+            WebElement accessPurposeOption = selenium.findElement(By.partialLinkText(iro.getAccessPurposeCode()));
+  	      	waitClickable(accessPurposeOption);
+  	      	accessPurposeOption.click();
+  	       
             return true;
         } catch (Exception e){
             return false;
@@ -326,28 +333,20 @@ public class ScoreplusReport extends SeleniumTest{
     }
   }
 
-  static class AddressForm extends SeleniumTest {      	 
-    //@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[1]/div[4]/div[2]/div[2]/div/div[1]/div/input[1]")
-    
+  static class AddressForm extends SeleniumTest {      	     
     private WebElement findAddress;
-
-    //@FindBy(how= How.XPATH, using="//*[@id=\"addressStNo\"]")    
-    private WebElement number;
-
-    //@FindBy(how= How.XPATH, using="//*[@id=\"addressStName\"]")    
-    private WebElement streetName;
-
-    //@FindBy(how= How.XPATH, using="//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[1]/div[4]/div[2]/div[2]/div/div[2]/div[1]/div[6]/div[2]/div/input[1]")    
-    private WebElement streetType;        
     
-    //@FindBy(how= How.XPATH, using="//*[@id=\"addressSuburb\"]")    
+    private WebElement number;
+    
+    private WebElement streetName;
+    
+    private WebElement streetType;        
+        
     private WebElement streetSuburb;
     
-    //@FindBy(how= How.XPATH, using="//*[@id=\"addressCity\"]")    
     private WebElement city;
     
     private static String ELEMENT_1_XPATH;
-    //private static String ELEMENT_1_XPATH = "//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[1]/div[4]/div[2]/div[2]/div/div[1]/ul/li[1]/a";
         
     public AddressForm(WebDriver driver, AddressXpath xpath) {
         super(driver);
@@ -390,8 +389,7 @@ public class ScoreplusReport extends SeleniumTest{
     public boolean searchAddress(String address) {      
       
       findAddress.sendKeys(address);
-      sleep();     
-      //waitForPresenceOf(By.xpath("//*[@id=\"home-tabs-pane-0\"]/div/div[4]/div[3]/div[2]/div/div/div/form/div/div[1]/div[4]/div[2]/div[2]/div/div[1]/ul"));
+      sleep();
                  
       WebElement firstElement = findElement(By.xpath(ELEMENT_1_XPATH));
       

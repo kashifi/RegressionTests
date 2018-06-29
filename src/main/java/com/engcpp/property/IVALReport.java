@@ -134,10 +134,15 @@ public class IVALReport extends SeleniumTest {
 	      waitClickable(ivalSubmit);
 	      ivalSubmit.click();     
 	      
-	      waitLoader();
-	      waitForPresenceOf(By.className("report-card-header"));
-	      waitForPresenceOf(By.className("report-page-content"));
-	      waitForPresenceOf(By.className("report-disclaimer"));
+	      try {
+			waitLoader();
+			  waitForPresenceOf(By.className("report-card-header"));
+			  waitForPresenceOf(By.className("report-page-content"));
+			  waitForPresenceOf(By.className("report-disclaimer"));
+			  System.out.println("iVAL Property Report has been successfully generated ..... ");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	                  
 	      return selenium.findElements(By.className("report-property-section")).size()>0;
 	    }        

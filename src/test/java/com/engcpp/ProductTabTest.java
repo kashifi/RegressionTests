@@ -32,13 +32,13 @@ public class ProductTabTest {
         driver.quit();
     }       
     
-    @Test
+    @Test(enabled=false)
     public void testPropertyTab(){
       ProductsTab tab = new ProductsTab(driver);        
       AssertJUnit.assertTrue(tab.propertyClick());        
     }
     
-    @Test
+    @Test(enabled=false)
     public void testBusinessTab(){            
       ProductsTab tab = new ProductsTab(driver);        
       AssertJUnit.assertTrue(tab.businessClick());        
@@ -50,7 +50,7 @@ public class ProductTabTest {
       AssertJUnit.assertTrue(tab.vehicleClick());        
     }  
 
-    @Test
+    @Test(enabled=false)
     public void testIndividualTab(){            
       ProductsTab tab = new ProductsTab(driver);        
       AssertJUnit.assertTrue(tab.individualsClick());        

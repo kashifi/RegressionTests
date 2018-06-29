@@ -1,21 +1,19 @@
-package com.kashifi;
-
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.AssertJUnit;
-import java.util.concurrent.TimeUnit;
+package com.kashifi.commercial;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import com.kashifi.advBizreports.advBizrptMenu;
 import com.engcpp.Login;
 import com.engcpp.ProductsTab;
+import com.engcpp.individual.utils.ReportOptions;
 import com.engcpp.utils.Constants;
 import com.engcpp.utils.DriverFactory;
+import com.kashifi.commercial.AdvancedBusinessReport.advBizrptMenu;
 
-public class advBizRptTest {
+public class AdvancedBusinessReportTest {
 
 	private WebDriver driver;
 	private Login login;
@@ -32,16 +30,20 @@ public class advBizRptTest {
 		driver.quit();
 	}
 
-	@Test
+	@Test(enabled = true)
 	public void testBizReport() throws InterruptedException {
 
 		if (new ProductsTab(driver).businessClick()) {
 
-			advBizrptMenu menu = new advBizreports(driver).withCommrpt("YEASTIE BOYS LIMITED").submit();
+			advBizrptMenu menu = new AdvancedBusinessReport(driver).withCommrpt("YEASTIE BOYS LIMITED").submit();
 
 			AssertJUnit.assertNotNull(menu);
 			if (menu != null) {
-				boolean reportOk = menu.SelectBizrpt().submit();
+				boolean reportOk = menu.SelectBizrpt()
+						.withReportOptions(new ReportOptions()
+								.withAccessPurposeCode("For investigating a case of suspected insurance fraud")
+								.withPrivateCodeConsent(true).withDirectorshipAffiliationSearch(true))
+						.submit();
 
 				AssertJUnit.assertTrue(reportOk);
 

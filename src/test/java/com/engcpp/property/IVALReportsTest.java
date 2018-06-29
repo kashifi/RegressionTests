@@ -36,7 +36,7 @@ public class IVALReportsTest {
         driver.quit();
     }       
     
-    @Test
+    @Test(enabled=true)
     public void testIVALReport() throws InterruptedException{
         
       if (new ProductsTab(driver).propertyClick()){

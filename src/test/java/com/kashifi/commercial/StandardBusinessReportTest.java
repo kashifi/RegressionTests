@@ -1,4 +1,4 @@
-package com.kashifi;
+package com.kashifi.commercial;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.AssertJUnit;
@@ -10,9 +10,9 @@ import com.engcpp.Login;
 import com.engcpp.ProductsTab;
 import com.engcpp.utils.Constants;
 import com.engcpp.utils.DriverFactory;
-import com.kashifi.stdBizReport.bizRptMenu;
+import com.kashifi.commercial.StandardBusinessReport.bizRptMenu;
 
-public class stdBizRptTest {
+public class StandardBusinessReportTest {
 
 	private WebDriver driver;
 	private Login login;
@@ -30,12 +30,12 @@ public class stdBizRptTest {
 		driver.quit();
 	}
 
-	@Test
+	@Test(enabled=true)
 	public void testBizReport() throws InterruptedException {
 
 		if (new ProductsTab(driver).businessClick()) {
 
-			bizRptMenu menu = new stdBizReport(driver).withCommrpt("IQ Solutions").submit();
+			bizRptMenu menu = new StandardBusinessReport(driver).withCommrpt("IQ Solutions").submit();
 
 			AssertJUnit.assertNotNull(menu);
 			if (menu != null) {

@@ -4,10 +4,42 @@
 </head>
 <body>
 Suites run: 1<br/>
-Suite>SmokeTestSet<br/>
+Suite>IQConnect SmokeTestSet<br/>
     Test>Login_LogOut<br/>
+        Failed>1<br/>
+            testLogin<br/>
+                org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"id","selector":"formHorizontalEmail"}
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.16299 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'NZAKLBH-LT0235', ip: '172.27.177.21', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\kxi17\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 67.0.3396.99, webStorageEnabled: true}
+Session ID: 1807673edb4174f81cb37fa1ebe5f171
+*** Element info: {Using=id, value=formHorizontalEmail}<br/>
+        Passed>0<br/>
+        Skipped>0<br/>
+    Test>iVAL_Property<br/>
+        Failed>1<br/>
+            testIVALReport<br/>
+                org.openqa.selenium.TimeoutException: Expected condition failed: waiting for all conditions to be valid: element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[@id="app"]/div/div/div[2]/div/div/div[1]/div[1]/div[3]' && visibility of Proxy element for: DefaultElementLocator 'By.xpath: //*[@id="app"]/div/div/div[2]/div/div/div[1]/div[1]/div[3]' (tried for 50 second(s) with 0 milliseconds interval)<br/>
+        Passed>0<br/>
+        Skipped>0<br/>
+    Test>Consumer_Reports<br/>
         Failed>0<br/>
         Passed>1<br/>
-            testLogin>took 15597ms<br/>
+            testIScorePlusReport>took 39224ms<br/>
+        Skipped>0<br/>
+    Test>StandardCommercialReport<br/>
+        Failed>0<br/>
+        Passed>1<br/>
+            testBizReport>took 25981ms<br/>
+        Skipped>0<br/>
+    Test>AdvancedCommercialReports<br/>
+        Failed>0<br/>
+        Passed>1<br/>
+            testBizReport>took 48601ms<br/>
         Skipped>0<br/>
 </body>

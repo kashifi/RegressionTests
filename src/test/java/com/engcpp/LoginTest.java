@@ -30,7 +30,7 @@ public class LoginTest {
 		driver.quit();
 	}
 
-	@Test
+	@Test(enabled=true)
 	public void testLogin() {
 		loginPage = loginPage.withUsername(Constants.USERNAME).withPassword(Constants.PASSWORD).login();
 

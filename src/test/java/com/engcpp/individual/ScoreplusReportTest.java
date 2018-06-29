@@ -37,10 +37,10 @@ public class ScoreplusReportTest {
     
     @AfterMethod
 	public void tearDown() {
-       driver.quit();
+      driver.quit();
     }       
     
-    @Test
+    @Test(enabled=true)
     public void testIScorePlusReport() throws InterruptedException{
         
       if (new ProductsTab(driver).individualsClick()){
@@ -65,9 +65,8 @@ public class ScoreplusReportTest {
             		  .withStreet("Browns bay")
             		  .withStreetType("Street")
             		  .withSuburb("Freemans Bay")
-            		  .useLookup(true))
-              
-              .withPreviousAddresses(new Address()
+            		  .useLookup(true),            		  
+            		  new Address()
             		  .withNumber("10")
             		  .withStreet("Hopetoun")
             		  .withStreetType("Street")
@@ -83,14 +82,16 @@ public class ScoreplusReportTest {
         if (menu != null) {
           boolean reportOk = menu.chooseScoreplus()
                                  .withReportOptions(new ReportOptions()
-                                    .withAccessPurposeCode("Request of credit information reports for consumer")
+                                    .withAccessPurposeCode("For investigating a case of suspected insurance fraud. Verification check")
                                     .withPrivateCodeConsent(true)
                                     .withDirectorshipAffiliationSearch(true))
                                  .submit();
+          // For CTA (No Consent Needed):: 	For investigating a case of suspected insurance fraud. Verification check
+          // For QA:::  "Request of credit information reports for consumer"
           
           AssertJUnit.assertTrue(reportOk);  
 
-          login.logout();          
+         login.logout();          
         }
       }
     }    

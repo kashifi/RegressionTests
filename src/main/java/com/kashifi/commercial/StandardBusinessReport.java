@@ -1,4 +1,4 @@
-package com.kashifi;
+package com.kashifi.commercial;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ import com.engcpp.SeleniumTest;
  * @author: Kashif Iqbal (Standard Business Reports)
  */
 
-public class stdBizReport extends SeleniumTest {
+public class StandardBusinessReport extends SeleniumTest {
 	private String commReport;
 
 	@FindBy(how = How.ID, using = "companySearchInput")
@@ -27,12 +27,12 @@ public class stdBizReport extends SeleniumTest {
 
 	private final String ELEMENT_1_XPATH = "//*[@id=\"app\"]/div/div/div[2]/div/div/div[1]/div[3]/div/div/div/div/div[2]/div/strong/a";
 
-	public stdBizReport(WebDriver selenium) {
+	public StandardBusinessReport(WebDriver selenium) {
 		super(selenium);
 		PageFactory.initElements(selenium, this);
 	}
 
-	public stdBizReport withCommrpt(String Commreport) {
+	public StandardBusinessReport withCommrpt(String Commreport) {
 		this.commReport = Commreport;
 		return this;
 	}
@@ -59,9 +59,8 @@ public class stdBizReport extends SeleniumTest {
 	}
 
 	/*
-	 * Function to navigate to the Business report after selection .................
-	 */
-
+	 * Functions to navigate to the Business report after selection ....... */
+	
 	/* Selecting a Standard Business Report ........ */
 
 	static class bizRptMenu extends SeleniumTest {
@@ -138,12 +137,16 @@ public class stdBizReport extends SeleniumTest {
 			waitClickable(bizRptSubmit);
 			bizRptSubmit.click();
 
-			waitLoader();
-			waitForPresenceOf(By.className("report-card-header"));
-			waitForPresenceOf(By.className("report-card-header-data"));
-			waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
+			try {
+				waitLoader();
+				waitForPresenceOf(By.className("report-card-header"));
+				waitForPresenceOf(By.className("report-card-header-data"));
+				waitForPresenceOf(By.cssSelector("div.report-card-header-title"));
 
-			System.out.println("Standard Business Report has been generated successfully ......... ");
+				System.out.println("Standard Business Report has been generated successfully ......... ");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			return selenium.findElements(By.className("workspace-hub-tiles")).size() > 0;
 		}
 	}
