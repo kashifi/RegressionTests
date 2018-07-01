@@ -8,9 +8,9 @@ public class Constants {
 	
 	/** Parameters to initiate for the CTA environment  **/	
     
-	public static final String IQC_URL = "https://iqconnect.test.equifax.co.nz";
-    public static final String USERNAME = "kashifi";
-    public static String PASSWORD = "Equifax@01";
+	public static final String IQC_URL = "";
+    public static final String USERNAME = "";
+    public static String PASSWORD = "";
     public static String NEW_PASSWORD;	    
     
 }
