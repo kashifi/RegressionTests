@@ -65,17 +65,79 @@
     
    <build>
     <plugins>
+    
+       <!-- Sure Fire Plugin  -->
+       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-changes-plugin</artifactId>
-        <version>2.12.1</version>
-        <configuration>
-          <mailSender>
-            <name>Release Notification</name>
-            <email>kashif.iqbal@equifax.com</email>
-          </mailSender>        
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.0</version>
+         <configuration>
+          <suitexmlFiles>
+          	<!-- TestNG Suite XML Files -->
+            <suitexmlFile>testng.xml</suitexmlFile>
+          </suitexmlFiles>        
         </configuration>
       </plugin>
+      
+      
+       <!-- Post-Man plugin -->
+		 <plugin>
+			<groupId>ch.fortysix</groupId>
+			<artifactId>maven-postman-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>send a mail</id>
+					<phase>test</phase>
+					<goals>
+						<goal>send-mail</goal>
+					</goals>
+					<inherited>true</inherited>
+			<configuration>
+				
+				<!-- From Email address -->
+					<from>kashif.iqbal@equifax.com</from>
+				
+				<!--  Email subject -->
+					<subject>IQC Automation SmokeTest Suite Report</subject>
+				
+				<!-- Fail the build if the mail doesnt reach -->
+					<failonerror>false</failonerror>
+				
+				<!-- host -->
+					<mailhost>smtp.gmail.com</mailhost>
+				
+				<!-- port of the host -->
+					<mailport>465</mailport>
+					<mailssl>true</mailssl>
+					<mailAltConfig>true</mailAltConfig>
+					
+					<!-- Email Authentication(USername and Password) -->
+					<mailuser>qa.automate001@gmail.com</mailuser>
+					<mailpassword>kiwi@2018</mailpassword>
+					
+					<receivers>
+						<!-- To Email address -->
+						<receiver>kashif.iqbal@equifax.com</receiver>
+					</receivers>
+					
+					<fileSets>
+					<fileSet>
+						<!-- Report directory Path -->
+						<directory>C://Users//kxi17//git//IQCRegressionTests//test-output//pdfngreport</directory>
+						<includes>
+							<!-- Report file name -->
+							<include>IQC_SmokeTest_pdfreport.pdf</include>
+						</includes>
+						<!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
+						</fileSet>
+					</fileSets>				
+				
+				</configuration>
+				</execution>
+			</executions>
+		</plugin>
+		
     </plugins>
   </build>
 </project>
