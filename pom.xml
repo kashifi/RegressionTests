@@ -125,9 +125,11 @@
 					<fileSet>
 						<!-- Report directory Path -->
 						<directory>C://Users//kxi17//git//IQCRegressionTests//test-output//pdfngreport</directory>
+						<directory>C://Users//kxi17//git//IQCRegressionTests//test-output</directory>
 						<includes>
 							<!-- Report file name -->
 							<include>IQC_SmokeTest_pdfreport.pdf</include>
+							<include>emailable-report.html</include>
 						</includes>
 						<!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
 						</fileSet>

@@ -30,8 +30,8 @@ public class AdvancedBusinessReportTest {
 		driver.quit();
 	}
 
-	@Test(enabled = true)
-	public void testBizReport() throws InterruptedException {
+	@Test(priority=4, enabled = true)
+	public void AdvancedBusinessReport() throws InterruptedException {
 
 		if (new ProductsTab(driver).businessClick()) {
 

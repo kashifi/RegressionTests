@@ -69,11 +69,11 @@ public class Login extends SeleniumTest {
 	}
 
 	public void logout() {
-		System.out.println("Successfully Logged OUT .......... ");
-		selenium.get(MAIN_URL + "/#/logout");
 		
+		selenium.get(MAIN_URL + "/#/logout");
 		while (isLoggedIn());
 		//sleep();
+		System.out.println("Successfully Logged OUT .......... ");
 	}
 
 	public boolean isLoggedIn() {

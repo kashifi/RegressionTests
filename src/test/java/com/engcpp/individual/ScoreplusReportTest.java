@@ -40,8 +40,8 @@ public class ScoreplusReportTest {
       driver.quit();
     }       
     
-    @Test(enabled=true)
-    public void testIScorePlusReport() throws InterruptedException{
+    @Test(priority=2, enabled= true)
+    public void EquifaxScorePlusReport() throws InterruptedException{
         
       if (new ProductsTab(driver).individualsClick()){
         

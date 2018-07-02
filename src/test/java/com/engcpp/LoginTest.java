@@ -30,8 +30,8 @@ public class LoginTest {
 		driver.quit();
 	}
 
-	@Test(enabled=true)
-	public void testLogin() {
+	@Test(priority=0, enabled=true)
+	public void Login_Logout() {
 		loginPage = loginPage.withUsername(Constants.USERNAME).withPassword(Constants.PASSWORD).login();
 
 		AssertJUnit.assertTrue(loginPage.isLoggedIn());

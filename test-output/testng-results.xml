@@ -2,84 +2,84 @@
 <testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="IQConnect SmokeTestSet" duration-ms="287123" started-at="2018-06-29T04:26:26Z" finished-at="2018-06-29T04:31:13Z">
+  <suite name="IQConnect SmokeTestSet" duration-ms="246553" started-at="2018-07-02T07:48:45Z" finished-at="2018-07-02T07:52:51Z">
     <groups>
     </groups>
-    <test name="Login_LogOut" duration-ms="20779" started-at="2018-06-29T04:26:26Z" finished-at="2018-06-29T04:26:47Z">
+    <test name="Login_LogOut" duration-ms="26470" started-at="2018-07-02T07:48:45Z" finished-at="2018-07-02T07:49:11Z">
       <class name="com.engcpp.LoginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="setUp" is-config="true" duration-ms="8325" started-at="2018-06-29T04:26:26Z" finished-at="2018-06-29T04:26:35Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="setUp" is-config="true" duration-ms="10756" started-at="2018-07-02T07:48:45Z" finished-at="2018-07-02T07:48:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="testLogin" duration-ms="11801" started-at="2018-06-29T04:26:35Z" finished-at="2018-06-29T04:26:46Z">
+        <test-method status="PASS" signature="Login_Logout()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="Login_Logout" duration-ms="14972" started-at="2018-07-02T07:48:56Z" finished-at="2018-07-02T07:49:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLogin -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="tearDown" is-config="true" duration-ms="631" started-at="2018-06-29T04:26:46Z" finished-at="2018-06-29T04:26:47Z">
+        </test-method> <!-- Login_Logout -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.LoginTest@369f73a2]" name="tearDown" is-config="true" duration-ms="716" started-at="2018-07-02T07:49:11Z" finished-at="2018-07-02T07:49:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.engcpp.LoginTest -->
     </test> <!-- Login_LogOut -->
-    <test name="iVAL_Property" duration-ms="50424" started-at="2018-06-29T04:26:47Z" finished-at="2018-06-29T04:27:37Z">
+    <test name="iVAL_Property" duration-ms="54918" started-at="2018-07-02T07:49:11Z" finished-at="2018-07-02T07:50:06Z">
       <class name="com.engcpp.property.IVALReportsTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="setUp" is-config="true" duration-ms="17249" started-at="2018-06-29T04:26:47Z" finished-at="2018-06-29T04:27:04Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="setUp" is-config="true" duration-ms="18705" started-at="2018-07-02T07:49:11Z" finished-at="2018-07-02T07:49:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testIVALReport()[pri:0, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="testIVALReport" duration-ms="32518" started-at="2018-06-29T04:27:04Z" finished-at="2018-06-29T04:27:37Z">
+        <test-method status="PASS" signature="iVALPropertyReport()[pri:1, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="iVALPropertyReport" duration-ms="35490" started-at="2018-07-02T07:49:30Z" finished-at="2018-07-02T07:50:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testIVALReport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="tearDown" is-config="true" duration-ms="653" started-at="2018-06-29T04:27:37Z" finished-at="2018-06-29T04:27:37Z">
+        </test-method> <!-- iVALPropertyReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.property.IVALReportsTest@4973813a]" name="tearDown" is-config="true" duration-ms="717" started-at="2018-07-02T07:50:06Z" finished-at="2018-07-02T07:50:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.engcpp.property.IVALReportsTest -->
     </test> <!-- iVAL_Property -->
-    <test name="Consumer_Reports" duration-ms="63445" started-at="2018-06-29T04:27:38Z" finished-at="2018-06-29T04:28:41Z">
+    <test name="Consumer_Reports" duration-ms="56067" started-at="2018-07-02T07:50:06Z" finished-at="2018-07-02T07:51:02Z">
       <class name="com.engcpp.individual.ScoreplusReportTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="setUp" is-config="true" duration-ms="17034" started-at="2018-06-29T04:27:38Z" finished-at="2018-06-29T04:27:55Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="setUp" is-config="true" duration-ms="18922" started-at="2018-07-02T07:50:06Z" finished-at="2018-07-02T07:50:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testIScorePlusReport()[pri:0, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="testIScorePlusReport" duration-ms="45662" started-at="2018-06-29T04:27:55Z" finished-at="2018-06-29T04:28:40Z">
+        <test-method status="PASS" signature="EquifaxScorePlusReport()[pri:2, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="EquifaxScorePlusReport" duration-ms="36457" started-at="2018-07-02T07:50:25Z" finished-at="2018-07-02T07:51:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testIScorePlusReport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="tearDown" is-config="true" duration-ms="742" started-at="2018-06-29T04:28:40Z" finished-at="2018-06-29T04:28:41Z">
+        </test-method> <!-- EquifaxScorePlusReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.engcpp.individual.ScoreplusReportTest@1efed156]" name="tearDown" is-config="true" duration-ms="682" started-at="2018-07-02T07:51:02Z" finished-at="2018-07-02T07:51:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.engcpp.individual.ScoreplusReportTest -->
     </test> <!-- Consumer_Reports -->
-    <test name="StandardCommercialReport" duration-ms="63997" started-at="2018-06-29T04:28:41Z" finished-at="2018-06-29T04:29:45Z">
+    <test name="StandardCommercialReport" duration-ms="48951" started-at="2018-07-02T07:51:02Z" finished-at="2018-07-02T07:51:51Z">
       <class name="com.kashifi.commercial.StandardBusinessReportTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="setUp" is-config="true" duration-ms="18093" started-at="2018-06-29T04:28:41Z" finished-at="2018-06-29T04:28:59Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="setUp" is-config="true" duration-ms="18080" started-at="2018-07-02T07:51:02Z" finished-at="2018-07-02T07:51:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testBizReport()[pri:0, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="testBizReport" duration-ms="45140" started-at="2018-06-29T04:28:59Z" finished-at="2018-06-29T04:29:44Z">
+        <test-method status="PASS" signature="StandardBusinessReport()[pri:3, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="StandardBusinessReport" duration-ms="30139" started-at="2018-07-02T07:51:21Z" finished-at="2018-07-02T07:51:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testBizReport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="tearDown" is-config="true" duration-ms="761" started-at="2018-06-29T04:29:44Z" finished-at="2018-06-29T04:29:45Z">
+        </test-method> <!-- StandardBusinessReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.kashifi.commercial.StandardBusinessReportTest@7c29daf3]" name="tearDown" is-config="true" duration-ms="727" started-at="2018-07-02T07:51:51Z" finished-at="2018-07-02T07:51:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.kashifi.commercial.StandardBusinessReportTest -->
     </test> <!-- StandardCommercialReport -->
-    <test name="AdvancedCommercialReports" duration-ms="88404" started-at="2018-06-29T04:29:45Z" finished-at="2018-06-29T04:31:13Z">
+    <test name="AdvancedCommercialReports" duration-ms="60026" started-at="2018-07-02T07:51:51Z" finished-at="2018-07-02T07:52:51Z">
       <class name="com.kashifi.commercial.AdvancedBusinessReportTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="setUp" is-config="true" duration-ms="48398" started-at="2018-06-29T04:29:45Z" finished-at="2018-06-29T04:30:33Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="setUp" is-config="true" duration-ms="21649" started-at="2018-07-02T07:51:51Z" finished-at="2018-07-02T07:52:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testBizReport()[pri:0, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="testBizReport" duration-ms="39355" started-at="2018-06-29T04:30:33Z" finished-at="2018-06-29T04:31:13Z">
+        <test-method status="PASS" signature="AdvancedBusinessReport()[pri:4, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="AdvancedBusinessReport" duration-ms="37617" started-at="2018-07-02T07:52:13Z" finished-at="2018-07-02T07:52:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testBizReport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="tearDown" is-config="true" duration-ms="646" started-at="2018-06-29T04:31:13Z" finished-at="2018-06-29T04:31:13Z">
+        </test-method> <!-- AdvancedBusinessReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.kashifi.commercial.AdvancedBusinessReportTest@2a17b7b6]" name="tearDown" is-config="true" duration-ms="754" started-at="2018-07-02T07:52:51Z" finished-at="2018-07-02T07:52:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
