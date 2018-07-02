@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login_LogOut"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="16.706">
+  <properties />
+  
+  
+            <testcase name="Login_Logout" time="16.706" classname="com.engcpp.LoginTest" />
+      
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iVAL_Property"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="33.408">
+  <properties />
+  
+  
+            <testcase name="iVALPropertyReport" time="33.408" classname="com.engcpp.property.IVALReportsTest" />
+      
+</testsuite>
