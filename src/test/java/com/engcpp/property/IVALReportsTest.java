@@ -36,13 +36,13 @@ public class IVALReportsTest {
         driver.quit();
     }       
     
-    @Test(priority=1, enabled=true)
+    @Test(priority=2, enabled=true)
     public void iVALPropertyReport() throws InterruptedException{
         
       if (new ProductsTab(driver).propertyClick()){
         
-        PropertyMenu menu = new IVALReport(driver)
-          .withProperty("Bucklands")
+       PropertyMenu menu = new IVALReport(driver)
+         .withProperty("Bucklands")
           .submit();
         
         AssertJUnit.assertNotNull(menu);

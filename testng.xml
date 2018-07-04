@@ -8,9 +8,8 @@
   <listeners>
     <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-  </listeners>
    
+  </listeners>
    <test thread-count="5" name="Login_LogOut">
     <classes>
       <class name="com.engcpp.LoginTest"/>

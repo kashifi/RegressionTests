@@ -1,7 +1,0 @@
-Dear Reciepient,
-
-This is a Test Email and here you can find attached the Smoke Test Report. 
-
-Kind Regards, 
-
-Kashif

@@ -30,7 +30,7 @@ public class StandardBusinessReportTest {
 		driver.quit();
 	}
 
-	@Test(priority=3, enabled=true)
+	@Test(priority=4, enabled=true)
 	public void StandardBusinessReport() throws InterruptedException {
 
 		if (new ProductsTab(driver).businessClick()) {

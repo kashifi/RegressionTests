@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.engcpp</groupId>
-	<artifactId>RegressionTest</artifactId>
+	<groupId>NZEquifax.IQConnect</groupId>
+	<artifactId>RegressionTestSuite</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<dependencies>
@@ -97,6 +97,28 @@
    <build>
     <plugins>
     
+          
+	<!-- TestNG-xslt related configuration. -->
+
+    <plugin>
+
+        <groupId>org.reportyng</groupId>
+        <artifactId>reporty-ng</artifactId>
+        <version>1.2</version>
+       <configuration>
+
+	<!-- Output directory for the testng xslt report -->
+
+         <outputdir>/target/testng-xslt-report</outputdir>
+         <surefireReportDirectory>/target/surefire-reports/testng-junit-results</surefireReportDirectory>
+         <sorttestcaselinks>true</sorttestcaselinks>
+         <testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
+         <showruntimetotals>true</showruntimetotals>
+       </configuration>
+
+    </plugin>
+    
+    
        <!-- SureFire Plugin  -->
        
       <plugin>
@@ -117,14 +139,13 @@
                     </property>
                     <property>
                         <name>listener</name>
-                        <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                        <value>org.uncommons.reportng.HTMLReporter</value>
                     </property>
                 </properties>
          
          			<workingDirectory>target/</workingDirectory>
         </configuration>
       </plugin>
-      
       
        <!-- Post-Man plugin -->
 		 <plugin>
@@ -176,13 +197,22 @@
 						</includes>
 						<!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
 						</fileSet>
+						
+						<fileSet>
+						<!-- Report directory Path -->
+						<directory>C://Users//kxi17//git//IQCRegressionTests//test-output//pdfngreport</directory>
+						<includes>
+							<!-- Report file name -->
+							<include>IQC_SmokeTest_pdfreport.pdf</include>
+						</includes>
+						<!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
+						</fileSet>
+						
 					</fileSets>				
-				
 				</configuration>
 				</execution>
 			</executions>
 		</plugin>
-		
-    </plugins>
+	</plugins>
   </build>
 </project>

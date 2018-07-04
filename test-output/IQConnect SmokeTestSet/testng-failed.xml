@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [IQConnect SmokeTestSet]">
+  <parameter name="pdfngreport-properties" value="C:\Users\kxi17\git\IQCRegressionTests\pdfngreport.properties"/>
   <listeners>
-    <listener class-name="com.kashifi.testng.TestngCustReporter"/>
+    <listener class-name="com.uttesh.pdfngreport.PDFReportListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
   </listeners>
-  <test thread-count="5" name="Login_LogOut(failed)">
+  <test thread-count="5" name="Consumer_Reports(failed)">
     <classes>
-      <class name="com.engcpp.LoginTest">
+      <class name="com.engcpp.individual.ScoreplusReportTest">
         <methods>
+          <include name="EquifaxScorePlusReport"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testLogin"/>
         </methods>
-      </class> <!-- com.engcpp.LoginTest -->
+      </class> <!-- com.engcpp.individual.ScoreplusReportTest -->
     </classes>
-  </test> <!-- Login_LogOut(failed) -->
-  <test thread-count="5" name="iVAL_Property(failed)">
+  </test> <!-- Consumer_Reports(failed) -->
+  <test thread-count="5" name="StandardCommercialReport(failed)">
     <classes>
-      <class name="com.engcpp.property.IVALReportsTest">
+      <class name="com.kashifi.commercial.StandardBusinessReportTest">
         <methods>
+          <include name="StandardBusinessReport"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testIVALReport"/>
         </methods>
-      </class> <!-- com.engcpp.property.IVALReportsTest -->
+      </class> <!-- com.kashifi.commercial.StandardBusinessReportTest -->
     </classes>
-  </test> <!-- iVAL_Property(failed) -->
+  </test> <!-- StandardCommercialReport(failed) -->
+  <test thread-count="5" name="AdvancedCommercialReports(failed)">
+    <classes>
+      <class name="com.kashifi.commercial.AdvancedBusinessReportTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="AdvancedBusinessReport"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.kashifi.commercial.AdvancedBusinessReportTest -->
+    </classes>
+  </test> <!-- AdvancedCommercialReports(failed) -->
 </suite> <!-- Failed suite [IQConnect SmokeTestSet] -->

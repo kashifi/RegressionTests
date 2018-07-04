@@ -40,7 +40,7 @@ public class ScoreplusReportTest {
       driver.quit();
     }       
     
-    @Test(priority=2, enabled= true)
+    @Test(priority=3, enabled= true)
     public void EquifaxScorePlusReport() throws InterruptedException{
         
       if (new ProductsTab(driver).individualsClick()){
@@ -53,7 +53,7 @@ public class ScoreplusReportTest {
               .withDateOfBirth("10/10/1950")
               .withAmount("101")
               .withAccount("CREDIT CARD")
-          
+              
               .withAddress(new Address()
             		  .withNumber("15")
             		  .withStreet("Hopetoun")

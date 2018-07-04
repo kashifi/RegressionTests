@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import static org.openqa.selenium.support.ui.ExpectedConditions.and;
+import static org.openqa.selenium.support.ui.ExpectedConditions.or;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
@@ -65,7 +66,24 @@ public class SeleniumTest {
     }
     
     public void waitFor(ExpectedCondition<?>condition) {      
-      new WebDriverWait(selenium, TME_OUT_IN_SECS, TME_SLEEP_IN_MILLI_SECS)
-        .until(condition);
+    	
+      try {
+    	  ExpectedCondition browserClosed =  new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				try {
+					driver.getTitle();
+					return false;
+				} catch (Exception e) {
+					System.out.println("IQ Connect platform or Network is facing degradation ......... ");
+					return true;
+				}
+			}
+    	  };
+    	  
+		new WebDriverWait(selenium, TME_OUT_IN_SECS, TME_SLEEP_IN_MILLI_SECS).until(or(condition, browserClosed));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
     }     
 }
