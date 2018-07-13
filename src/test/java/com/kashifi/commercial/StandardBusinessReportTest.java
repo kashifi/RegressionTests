@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.engcpp.Login;
 import com.engcpp.ProductsTab;
+import com.engcpp.utils.Configuration;
 import com.engcpp.utils.Constants;
 import com.engcpp.utils.DriverFactory;
 import com.kashifi.commercial.StandardBusinessReport.bizRptMenu;
@@ -21,8 +22,11 @@ public class StandardBusinessReportTest {
 	public void setUp() {
 		
 		driver = DriverFactory.newChromeInstance();
-		login = new Login(Constants.IQC_URL, driver).withUsername(Constants.USERNAME).withPassword(Constants.PASSWORD)
+		login = new Login(Constants.IQC_URL, driver)
+				.withUsername(Constants.USERNAME)
+				.withPassword(Constants.PASSWORD)
 				.login();
+
 	}
 
 	@AfterMethod

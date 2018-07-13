@@ -6,37 +6,26 @@
     <listener class-name="com.uttesh.pdfngreport.PDFReportListener"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
   </listeners>
-  <test thread-count="5" name="Consumer_Reports(failed)">
+  <test thread-count="5" name="Login_LogOut(failed)">
     <classes>
-      <class name="com.engcpp.individual.ScoreplusReportTest">
-        <methods>
-          <include name="EquifaxScorePlusReport"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.engcpp.individual.ScoreplusReportTest -->
-    </classes>
-  </test> <!-- Consumer_Reports(failed) -->
-  <test thread-count="5" name="StandardCommercialReport(failed)">
-    <classes>
-      <class name="com.kashifi.commercial.StandardBusinessReportTest">
-        <methods>
-          <include name="StandardBusinessReport"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.kashifi.commercial.StandardBusinessReportTest -->
-    </classes>
-  </test> <!-- StandardCommercialReport(failed) -->
-  <test thread-count="5" name="AdvancedCommercialReports(failed)">
-    <classes>
-      <class name="com.kashifi.commercial.AdvancedBusinessReportTest">
+      <class name="com.engcpp.LoginTest">
         <methods>
           <include name="tearDown"/>
-          <include name="AdvancedBusinessReport"/>
+          <include name="setUp"/>
+          <include name="Login_Logout"/>
+        </methods>
+      </class> <!-- com.engcpp.LoginTest -->
+    </classes>
+  </test> <!-- Login_LogOut(failed) -->
+  <test thread-count="5" name="iVAL_Property(failed)">
+    <classes>
+      <class name="com.engcpp.property.IVALReportsTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="iVALPropertyReport"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.kashifi.commercial.AdvancedBusinessReportTest -->
+      </class> <!-- com.engcpp.property.IVALReportsTest -->
     </classes>
-  </test> <!-- AdvancedCommercialReports(failed) -->
+  </test> <!-- iVAL_Property(failed) -->
 </suite> <!-- Failed suite [IQConnect SmokeTestSet] -->

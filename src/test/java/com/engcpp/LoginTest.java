@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.engcpp.utils.Configuration;
 import com.engcpp.utils.Constants;
 import com.engcpp.utils.DriverFactory;
 
@@ -32,7 +33,8 @@ public class LoginTest {
 
 	@Test(priority=1, enabled=true)
 	public void Login_Logout() {
-		loginPage = loginPage.withUsername(Constants.USERNAME).withPassword(Constants.PASSWORD).login();
+		Configuration config = Configuration.newInstance();
+		loginPage = loginPage.withUsername(config.read(Configuration.USERNAME)).withPassword(config.read(Configuration.PASSWORD)).login();
 
 		AssertJUnit.assertTrue(loginPage.isLoggedIn());
 	}

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import static org.openqa.selenium.support.ui.ExpectedConditions.and;
@@ -13,6 +14,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.or;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -49,8 +51,7 @@ public class SeleniumTest {
       } catch (StaleElementReferenceException | NoSuchElementException e){
           return null;
       }        
-    }
-    
+    }    
     
     public void waitLoader() {
         while(findElement(By.className("report-loading-icon")) != null); 
@@ -61,14 +62,30 @@ public class SeleniumTest {
         .until(and(elementToBeClickable(element), visibilityOf(element)));
     }
     
-    public void waitForPresenceOf(By locator) {
+    /**
+     * Look for an element based on the text inside of the element
+     * @param element
+     * @param text
+     */
+    public void waitForPresenceOf(WebElement element, String text) throws WebDriverException {
+        waitFor(textToBePresentInElement(element, text));
+    }
+    
+    /**
+     * Look for an element based on its location (xpath, css-locator, etc )
+     * @param locator
+     */
+    public void waitForPresenceOf(By locator) throws WebDriverException {
         waitFor(presenceOfElementLocated(locator));
     }
     
-    public void waitFor(ExpectedCondition<?>condition) {      
-    	
-      try {
-    	  ExpectedCondition browserClosed =  new ExpectedCondition<Boolean>() {
+    public void waitFor(ExpectedCondition<?>condition) throws WebDriverException {          	
+    	new WebDriverWait(selenium, TME_OUT_IN_SECS, TME_SLEEP_IN_MILLI_SECS).until(or(condition, getBrowserConditions()));
+
+    } 
+ 
+    private ExpectedCondition getBrowserConditions() {
+    	return new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(WebDriver driver) {
 				try {
@@ -80,10 +97,5 @@ public class SeleniumTest {
 				}
 			}
     	  };
-    	  
-		new WebDriverWait(selenium, TME_OUT_IN_SECS, TME_SLEEP_IN_MILLI_SECS).until(or(condition, browserClosed));
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-    }     
+    }    
 }

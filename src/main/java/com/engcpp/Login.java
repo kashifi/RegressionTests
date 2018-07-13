@@ -9,9 +9,10 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- *
  * @author engcpp
+ * 
  */
+
 public class Login extends SeleniumTest {
 	private final String LOGIN_URL;
 	private final String MAIN_URL;

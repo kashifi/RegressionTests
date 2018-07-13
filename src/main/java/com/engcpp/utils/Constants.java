@@ -6,11 +6,11 @@ package com.engcpp.utils;
  */
 public class Constants {
 	
-	/** Parameters to initiate for the CTA environment  **/	
-    
-	public static final String IQC_URL = "https://iqconnect.test.equifax.co.nz";
-    public static final String USERNAME = "kashifi";
-    public static String PASSWORD = "Equifax@01";
-    public static String NEW_PASSWORD;	    
+	/** Parameters to initiate for the QA environment **/ 
+	
+	public static final String IQC_URL = "URL";
+    public static final String USERNAME = "User";
+    public static final String PASSWORD = "Pass";
+        
     
 }
